@@ -122,3 +122,13 @@ Run the Script Immediately (For Testing)
 If you want to test the script without scheduling it:
 
 `cd ~/update-number-project && go run main.go`
+
+## Check if cron Service is Running
+### Ensure the cron daemon is running on your macOS:
+
+`sudo launchctl list | grep com.vix.cron`
+
+### If you see an entry for com.vix.cron, it means the cron service is running.
+### If there’s no output, you need to start the cron service:
+
+`sudo launchctl load -w /System/Library/LaunchDaemons/com.vix.cron.plist`
